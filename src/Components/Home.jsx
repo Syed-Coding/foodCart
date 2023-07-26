@@ -2,9 +2,9 @@ import { useEffect, useState, useMemo } from "react";
 import { Main } from "./Main";
 import { Navbar } from "./Navbar";
 import Loading from "./Loading";
-function Home() {
+function Home({ cart, setCart }) {
   const [data, setData] = useState(null);
-  const [cart, setCart] = useState([]);
+
   const [activeMenu, setActiveMenu] = useState(null);
   // useEffect(() => {
   //   console.log("useEffetct");

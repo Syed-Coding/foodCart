@@ -1,4 +1,4 @@
-import cartimg from "../assets/cart.png";
+import { FaOpencart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export const Cart = () => {
   return (
@@ -6,7 +6,8 @@ export const Cart = () => {
       <ul>
         <li>
           <Link to="/cart">My orders</Link>
-          <img src={cartimg} alt="cart" />
+
+          <FaOpencart></FaOpencart>
           <span id="cart">0</span>
         </li>
       </ul>
