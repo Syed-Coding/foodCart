@@ -7,6 +7,7 @@ export const Main = ({
   activeMenu,
   setCart,
   cart,
+  activeCategory,
 }) => {
   return (
     <div className="Main">
@@ -16,6 +17,7 @@ export const Main = ({
         activeMenu={activeMenu}
         setCart={setCart}
         cart={cart}
+        activeCategory={activeCategory}
       ></Products>
     </div>
   );

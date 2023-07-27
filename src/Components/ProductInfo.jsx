@@ -1,109 +1,54 @@
-export const ProductInfo = ({
-  dish_id,
-  dish_name,
-  dish_currency,
-  dish_price,
-  dish_image,
-  dish_calories,
-  dish_description,
-  setCart,
-  cart,
-}) => {
-  // const numbers = [9];
-  // console.log(numbers.find((ele) => ele > 100));
-  // in find if no elemnet or no match found filter give undefined
-  // in filter if no match found or empty array retun []
-  // in map  if  empty array retun [] and if no match retun false
+export const ProductInfo = ({ ele, setCart, cart }) => {
+  const count = cart?.find((item) => item.dish_id === ele.dish_id)?.count;
 
-  // let itemInCart = cart.findIndex((ele) => ele.dish_id === dish_id) >= 0; // expects booolean , check if an item is there
-  let count = cart?.find((item) => item.dish_id === dish_id)?.count || 0;
-  // console.log(cart);
-  //initally undefined || 0 ==>  0
-  //after heandelincrese or decrease  ,re-rendering occures nerw count value gets
-  console.log(count);
-  const handleIncrease = () => {
-    // if (count === 0) {
-    //   console.log("add new product to cart");
-    // } else if (count > 0) {
-    //   setCart((prev) => {
-    //     console.log("inside cart");
-    //     return prev?.map((item) =>
-    //       item.dish_id === dish_id ? { ...item, count: item.count + 1 } : item
-    //     );
-    //   });
-    // }
-    if (count === 0) {
-      // if cart emtpy
-      let cartProduct = {
-        dish_id,
-        dish_name,
-        dish_currency,
-        dish_price,
-        dish_image,
-        dish_calories,
-        dish_description,
-        setCart,
-        count: 1,
-      };
-      setCart((prev) => {
-        console.log(prev);
-        return [...prev, cartProduct];
-      }); //rendering occurs here when state changes
-      console.log("adding item to cart initially");
-    } else {
-      //if already count
-      setCart((prev) => {
-        return prev?.map((item) =>
-          item.dish_id === dish_id ? { ...item, count: item.count + 1 } : item
-        );
-      });
-      console.log("increases count");
-    }
+  const handleAddCart = () => {
+    const cartProduct = {
+      ...ele,
+      count: 1,
+    };
+    setCart((prev) => {
+      console.log(prev);
+      return [...prev, cartProduct];
+    });
   };
 
-  const handleDecrease = () => {
-    if (count <= 1) {
-      setCart((prev) => {
-        return prev.filter((item) => item.dish_id !== dish_id);
-      });
-    } else {
-      setCart((prev) => {
-        return prev?.map((item) =>
-          item.dish_id === dish_id ? { ...item, count: item.count - 1 } : item
-        );
-      });
-    }
+  const handleRemoveCart = () => {
+    setCart((prev) => {
+      return prev.filter((item) => item.dish_id !== ele.dish_id);
+    });
   };
   return (
     <div className="dishes-main">
       <div className="left-section">
         <div className="dishes">
           <img src="" alt="" />
-          <h3>{dish_name}</h3>
+          <h3>{ele.dish_name}</h3>
         </div>
 
         <div className="dishes-details">
-          <h3>{dish_currency}</h3>
-          <span>{dish_price}</span>
+          <span>Price : {ele.dish_price}</span>
+
+          <h3 style={{ color: "#630063" }}>{ele.dish_currency}</h3>
         </div>
         <div className="dishes-addon">
-          <p>{dish_description}</p>
+          <p>{ele.dish_description}</p>
           <div className="button">
-            <span className="min" onClick={handleDecrease}>
-              -
-            </span>
-            <span>{count} </span>
-            <span className="plus" onClick={handleIncrease}>
-              +
-            </span>
+            {count ? (
+              <span onClick={handleRemoveCart}>Remove Item</span>
+            ) : ele.dish_Availability ? (
+              <span onClick={handleAddCart}>Add To Cart </span>
+            ) : (
+              <span style={{ color: "darkblue" }}>Out Of Stock</span>
+            )}
+
             <br />
           </div>
-          <h3>Customization Not available</h3>
+          <h3>{ele.addonCat[0] && "Customization Available"}</h3>
         </div>
       </div>
       <div className="right-section">
-        <h5>{dish_calories} Calories</h5>
-        <img src={dish_image} alt={dish_name} />
+        <h5>{ele.dish_calories} Calories</h5>
+        <img src={ele.dish_image} alt={ele.dish_name} />
       </div>
     </div>
   );

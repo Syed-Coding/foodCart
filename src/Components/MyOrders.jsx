@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { Navbar } from "./Navbar";
 export const MyOrders = ({ cart, setCart }) => {
   console.log(
     "cart in orders***********************************************",
@@ -5,6 +7,11 @@ export const MyOrders = ({ cart, setCart }) => {
   );
   return (
     <div>
+      <Link className="home" to="/">
+        CLICK TO ORDER MORE 🍕
+      </Link>
+      <Navbar data="CART ITEMS"></Navbar>
+      <hr></hr>
       <div className="products-comp">
         <div className="row">
           <div className="items">

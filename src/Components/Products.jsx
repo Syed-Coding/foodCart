@@ -7,6 +7,7 @@ export const Products = ({
   activeMenu,
   setCart,
   cart,
+  activeCategory,
 }) => {
   return (
     <div className="products-comp">
@@ -14,6 +15,7 @@ export const Products = ({
         <Categories
           categoryData={categoryData}
           handleCategory={handleCategory}
+          activeCategory={activeCategory}
         ></Categories>
         <ProductItems
           activeMenu={activeMenu}

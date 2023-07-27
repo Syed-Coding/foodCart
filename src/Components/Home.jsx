@@ -4,7 +4,7 @@ import { Navbar } from "./Navbar";
 import Loading from "./Loading";
 function Home({ cart, setCart }) {
   const [data, setData] = useState(null);
-
+  const [activeCategory, setActiveCategory] = useState(null);
   const [activeMenu, setActiveMenu] = useState(null);
   // useEffect(() => {
   //   console.log("useEffetct");
@@ -16,7 +16,7 @@ function Home({ cart, setCart }) {
   //     clearInterval(timeout);
   //   }, 3001);
   // }, []);
-
+  console.log(activeCategory);
   const categoryData = useMemo(() => {
     return data?.table_menu_list.map((ele) => {
       return ele.menu_category;
@@ -30,8 +30,8 @@ function Home({ cart, setCart }) {
     const activeCategory = data.table_menu_list.find(
       (ele) => ele.menu_category === cate
     );
-
     setActiveMenu(activeCategory);
+    setActiveCategory(cate);
   };
 
   const fetchData = async () => {
@@ -42,12 +42,14 @@ function Home({ cart, setCart }) {
       const [apiData] = await response.json();
       setData(apiData);
       setActiveMenu(apiData.table_menu_list[0]);
+      setActiveCategory(apiData.table_menu_list[0].menu_category);
     } catch (error) {
       setIsError(true);
     }
     setIsLoading(false);
   };
   useEffect(() => {
+    console.log("isnide useEffect");
     fetchData();
   }, []);
 
@@ -63,6 +65,7 @@ function Home({ cart, setCart }) {
         activeMenu={activeMenu}
         setCart={setCart}
         cart={cart}
+        activeCategory={activeCategory}
       ></Main>
     </div>
   );

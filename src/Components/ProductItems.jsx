@@ -6,7 +6,7 @@ export const ProductItems = ({ activeMenu, setCart, cart }) => {
         return (
           <ProductInfo
             key={ele.dish_id}
-            {...ele}
+            ele={ele}
             setCart={setCart}
             cart={cart}
           ></ProductInfo>

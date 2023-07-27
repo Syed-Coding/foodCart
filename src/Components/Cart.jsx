@@ -5,7 +5,7 @@ export const Cart = () => {
     <nav>
       <ul>
         <li>
-          <Link to="/cart">My orders</Link>
+          <Link to="/cart">MY CART🍔🍗</Link>
 
           <FaOpencart></FaOpencart>
           <span id="cart">0</span>

@@ -4,7 +4,7 @@ export const Navbar = ({ data, cart }) => {
   return (
     <div className="navbar">
       <div className="navbar-container">
-        <h2>{data.restaurant_name}</h2>
+        <h1 style={{ padding: "20px 15px" }}>{data.restaurant_name || data}</h1>
         <Cart cart={cart}></Cart>
       </div>
     </div>
