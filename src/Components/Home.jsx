@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import { Main } from "./Main";
 import { Navbar } from "./Navbar";
 import Loading from "./Loading";
-function Home({ cart, setCart }) {
+function Home({ cart, setCart, cartData }) {
   const [data, setData] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -58,7 +58,7 @@ function Home({ cart, setCart }) {
 
   return (
     <div className="App">
-      <Navbar data={data} cart={cart}></Navbar>
+      <Navbar data={data} cart={cart} cartData={cartData}></Navbar>
       <Main
         categoryData={categoryData}
         handleCategory={handleCategory}

@@ -135,6 +135,68 @@
       p {
         line-height: 2rem;
       }
+      button {
+        width: 150px;
+        height: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        background: red;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+        background: #e62222;
+      }
+
+      button,
+      button span {
+        transition: 200ms;
+      }
+
+      button .text {
+        transform: translateX(35px);
+        color: white;
+        font-weight: bold;
+      }
+
+      button .icon {
+        position: absolute;
+        border-left: 1px solid #c41b1b;
+        transform: translateX(110px);
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      button svg {
+        width: 15px;
+        fill: #eee;
+      }
+
+      button:hover {
+        background: #ff3636;
+      }
+
+      button:hover .text {
+        color: transparent;
+      }
+
+      button:hover .icon {
+        width: 150px;
+        border-left: none;
+        transform: translateX(0);
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      button:active .icon svg {
+        transform: scale(0.8);
+      }
+
       .button {
         cursor: pointer;
         margin-bottom: 1rem;
@@ -178,7 +240,7 @@
         border-radius: 50px;
         gap: 1rem;
         padding: 0.4rem;
-        width: 120px;
+        width: 83px;
         background-color: #078b17;
         display: flex;
         justify-content: center;
@@ -230,8 +292,8 @@
     border-radius: 10px;
   }
   .img-cart {
-    width: 131px;
-    height: 118px;
+    width: 132px;
+    height: 130px;
     object-fit: cover;
     border-radius: 60px;
     margin-top: 10px;
@@ -588,6 +650,7 @@
         p {
           line-height: 2rem;
         }
+
         .button {
           cursor: pointer;
           margin-bottom: 1rem;
@@ -642,4 +705,12 @@
       }
     }
   }
+}
+.quantity {
+  margin-left: -86px;
+}
+
+.cartFooter {
+  margin-left: 43%;
+  margin-top: -95px;
 }
