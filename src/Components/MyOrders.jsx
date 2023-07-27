@@ -12,7 +12,7 @@ export const MyOrders = ({ cart, setCart, cartData }) => {
       <Navbar data="CART ITEMS" cartData={cartData}></Navbar>
       <div className="cartFooter">
         <h2 style={{ color: "blue" }}>
-          TOTAL: <b> {cartData.totalPrice} </b> SAR
+          TOTAL: <b> {cartData.totalPrice.toFixed(2)} </b> SAR
         </h2>
       </div>
       <hr></hr>
