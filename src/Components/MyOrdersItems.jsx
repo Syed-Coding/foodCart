@@ -9,16 +9,17 @@ export const MyOrdersItems = ({ dish, cart, setCart }) => {
     });
   };
   const handleDecrease = (dish_id) => {
-    if (dishcount == 1) {
+    if (dishcount === 1) {
       setCart((prev) => {
         return prev?.filter((item) => item.dish_id !== dish_id);
       });
+    } else {
+      setCart((prev) => {
+        return prev?.map((item) =>
+          item.dish_id === dish_id ? { ...item, count: item.count - 1 } : item
+        );
+      });
     }
-    setCart((prev) => {
-      return prev?.map((item) =>
-        item.dish_id === dish_id ? { ...item, count: item.count - 1 } : item
-      );
-    });
   };
 
   const handleRemove = (dish_id) => {
