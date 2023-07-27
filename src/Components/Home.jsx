@@ -16,7 +16,7 @@ function Home({ cart, setCart, cartData }) {
   //     clearInterval(timeout);
   //   }, 3001);
   // }, []);
-  console.log(activeCategory);
+  // console.log(activeCategory);
   const categoryData = useMemo(() => {
     return data?.table_menu_list.map((ele) => {
       return ele.menu_category;
@@ -49,7 +49,7 @@ function Home({ cart, setCart, cartData }) {
     setIsLoading(false);
   };
   useEffect(() => {
-    console.log("isnide useEffect");
+    // console.log("isnide useEffect");
     fetchData();
   }, []);
 

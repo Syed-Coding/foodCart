@@ -20,7 +20,14 @@ export const MyOrders = ({ cart, setCart, cartData }) => {
         <div className="row">
           <div className="items">
             {cart.map((dish) => {
-              return <MyOrdersItems dish={dish} key={uuidv4()}></MyOrdersItems>;
+              return (
+                <MyOrdersItems
+                  dish={dish}
+                  setCart={setCart}
+                  cart={cart}
+                  key={uuidv4()}
+                ></MyOrdersItems>
+              );
             })}
           </div>
         </div>

@@ -8,7 +8,7 @@ export const Categories = ({
 }) => {
   return (
     <div className="Products">
-      {console.log(categoryData)}
+      {/* {console.log(categoryData)} */}
       {categoryData.map((ele) => (
         <CategoryBTns
           ele={ele}

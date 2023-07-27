@@ -1,4 +1,31 @@
-export const MyOrdersItems = ({ dish }) => {
+export const MyOrdersItems = ({ dish, cart, setCart }) => {
+  const dishcount =
+    cart?.find((item) => item.dish_id === dish.dish_id)?.count || 0;
+  const handleIncrease = (dish_id) => {
+    setCart((prev) => {
+      return prev?.map((item) =>
+        item.dish_id === dish_id ? { ...item, count: item.count + 1 } : item
+      );
+    });
+  };
+  const handleDecrease = (dish_id) => {
+    if (dishcount == 1) {
+      setCart((prev) => {
+        return prev?.filter((item) => item.dish_id !== dish_id);
+      });
+    }
+    setCart((prev) => {
+      return prev?.map((item) =>
+        item.dish_id === dish_id ? { ...item, count: item.count - 1 } : item
+      );
+    });
+  };
+
+  const handleRemove = (dish_id) => {
+    setCart((prev) => {
+      return prev?.filter((item) => item.dish_id !== dish_id);
+    });
+  };
   return (
     <div className="dishes-main">
       <div className="left-section">
@@ -12,14 +39,21 @@ export const MyOrdersItems = ({ dish }) => {
         <div className="dishes-addon">
           <div className="button-cart">
             <div className="quantity"> Quantity</div>
-            <span className="min">-</span>
+            <span className="min" onClick={() => handleDecrease(dish.dish_id)}>
+              -
+            </span>
             <span> {dish.count}</span>
-            <span className="plus">+</span>
+            <span className="plus" onClick={() => handleIncrease(dish.dish_id)}>
+              +
+            </span>
             <br />
           </div>
-          <button class="noselect">
-            <span class="text">Remove</span>
-            <span class="icon">
+          <button
+            className="noselect"
+            onClick={() => handleRemove(dish.dish_id)}
+          >
+            <span className="text">Remove</span>
+            <span className="icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

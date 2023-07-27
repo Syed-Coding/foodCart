@@ -7,7 +7,7 @@ export const ProductInfo = ({ ele, setCart, cart }) => {
       count: 1,
     };
     setCart((prev) => {
-      console.log(prev);
+      // console.log(prev);
       return [...prev, cartProduct];
     });
   };

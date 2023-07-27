@@ -4,7 +4,7 @@ import { MyOrders } from "./Components/MyOrders";
 import { useState } from "react";
 export const App = () => {
   const [cart, setCart] = useState([]);
-  console.log(cart);
+  // console.log(cart);
   const cartData = cart.reduce(
     (acc, crr) => {
       const length = cart.length;
@@ -15,7 +15,7 @@ export const App = () => {
     },
     { cartCount: 0, totalPrice: 0 }
   );
-  console.log(cartData);
+  // console.log(cartData);
   return (
     <Routes>
       <Route

@@ -20,7 +20,7 @@ export const ProductInfo = ({
   // console.log(cart);
   //initally undefined || 0 ==>  0
   //after heandelincrese or decrease  ,re-rendering occures nerw count value gets
-  console.log(count);
+  // console.log(count);
   const handleIncrease = () => {
     // if (count === 0) {
     //   console.log("add new product to cart");
