@@ -1,3 +1,8 @@
+import {
+  DeleteMessage,
+  successMessage,
+} from "../userNotifications.js/notifications";
+
 export const ProductInfo = ({ ele, setCart, cart }) => {
   const count = cart?.find((item) => item.dish_id === ele.dish_id)?.count;
 
@@ -10,12 +15,16 @@ export const ProductInfo = ({ ele, setCart, cart }) => {
       // console.log(prev);
       return [...prev, cartProduct];
     });
+    successMessage(
+      "Food Item Added To Cart.Check MY CART for More Info 😋😋😋."
+    );
   };
 
   const handleRemoveCart = () => {
     setCart((prev) => {
       return prev.filter((item) => item.dish_id !== ele.dish_id);
     });
+    DeleteMessage("Food Item Deleted From Your Cart 😔😔😔.");
   };
   return (
     <div className="dishes-main">

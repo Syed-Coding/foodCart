@@ -2,6 +2,8 @@ import Home from "./Components/Home";
 import { Routes, Route } from "react-router-dom";
 import { MyOrders } from "./Components/MyOrders";
 import { useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 export const App = () => {
   const [cart, setCart] = useState([]);
   // console.log(cart);
@@ -17,15 +19,20 @@ export const App = () => {
   );
   // console.log(cartData);
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={<Home cart={cart} setCart={setCart} cartData={cartData} />}
-      />
-      <Route
-        path="/cart"
-        element={<MyOrders cart={cart} setCart={setCart} cartData={cartData} />}
-      />
-    </Routes>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home cart={cart} setCart={setCart} cartData={cartData} />}
+        />
+        <Route
+          path="/cart"
+          element={
+            <MyOrders cart={cart} setCart={setCart} cartData={cartData} />
+          }
+        />
+      </Routes>
+      <ToastContainer></ToastContainer>
+    </>
   );
 };

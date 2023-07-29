@@ -1,3 +1,5 @@
+import { DeleteMessage } from "../userNotifications.js/notifications";
+
 export const MyOrdersItems = ({ dish, cart, setCart }) => {
   const dishcount =
     cart?.find((item) => item.dish_id === dish.dish_id)?.count || 0;
@@ -13,6 +15,7 @@ export const MyOrdersItems = ({ dish, cart, setCart }) => {
       setCart((prev) => {
         return prev?.filter((item) => item.dish_id !== dish_id);
       });
+      DeleteMessage("Food Item Deleted From Your Cart 😔😔😔.");
     } else {
       setCart((prev) => {
         return prev?.map((item) =>
@@ -26,6 +29,7 @@ export const MyOrdersItems = ({ dish, cart, setCart }) => {
     setCart((prev) => {
       return prev?.filter((item) => item.dish_id !== dish_id);
     });
+    DeleteMessage("Food Item Deleted From Your Cart 😔😔😔.");
   };
   return (
     <div className="dishes-main">
