@@ -12,7 +12,7 @@ export const Categories = ({
       {categoryData.map((ele) => (
         <CategoryBTns
           ele={ele}
-          key={uuidv4()}
+          key={ele}
           handleCategory={handleCategory}
           activeCategory={activeCategory}
         ></CategoryBTns>

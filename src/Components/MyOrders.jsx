@@ -26,7 +26,7 @@ export const MyOrders = ({ cart, setCart, cartData }) => {
                   dish={dish}
                   setCart={setCart}
                   cart={cart}
-                  key={uuidv4()}
+                  key={dish.dish_id}
                 ></MyOrdersItems>
               );
             })}
