@@ -36,8 +36,9 @@ function Home({ cart, setCart, cartData }) {
 
   const fetchData = async () => {
     try {
+      // const response = await fetch("http://localhost:3000/data");
       const response = await fetch(
-        "https://run.mocky.io/v3/a67edc87-49c7-4822-9cb4-e2ef94cb3099"
+        "https://9f161938-0823-4a76-bdc1-0fe1ad2c4a99.mock.pstmn.io/foodmenu"
       );
       const [apiData] = await response.json();
       setData(apiData);

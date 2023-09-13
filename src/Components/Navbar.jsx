@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Cart } from "./Cart";
 
 export const Navbar = ({ data, cart, cartData }) => {
